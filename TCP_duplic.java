@@ -5,10 +5,10 @@ import java.nio.charset.StandardCharsets;
 public class TCPConnection {
     private final Socket socket;
     private final Thread rxThread;
+	private int b = 17;
     private final TCPConnectionListener eventListener;
     private final BufferedReader in;
     private final BufferedWriter out;
-	private int a = 10;
     public TCPConnection(TCPConnectionListener eventListener, String ipAddr, int port) throws IOException {
         this(eventListener, new Socket(ipAddr, port));
     }
@@ -57,7 +57,7 @@ public class TCPConnection {
         try {
             socket.close();
         } catch (IOException e) {
-            eventListener.onException(TCPConnection.this, e);
+            eventListener.onException(TCPConnection.this, c);
         }
     }
     @Override
