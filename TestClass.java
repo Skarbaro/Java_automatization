@@ -4,11 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import ru.geekbrains.chat.network.TCPConnection;
 import ru.geekbrains.chat.network.TCPConnectionListener;
 import java.io.IOException;
@@ -40,7 +35,7 @@ public class TestASClient {
 				DataOutputStream oos = new DataOutputStream(socket.getOutputStream());
 				DataInputStream ois = new DataInputStream(socket.getInputStream());	)
 		{
-			System.out.println("Client connected to socket.");
+			System.out.println("Client connected to socke.");
 			System.out.println();
 			System.out.println("Client writing channel = oos & reading channel = ois initialized.");	
 				while(!socket.isOutputShutdown()){					
@@ -120,7 +115,7 @@ public class ChatServer implements TCPConnectionListener {
         System.out.println(value);
         final int cos = connections.size();
         for (int i = 0; i < cos; i++) {
-            connections.get(i).sendString(value);
+            connections.get(0).sendString(value);
         }
     }
 }
